@@ -1,0 +1,24 @@
+<template>
+  <section class="sectionThree w-full pt-16 pb-24 px-24 mb-24 relative">
+    <h1 class="text-4xl text-blue-900 font-bold">News</h1>
+    <div class="w-1/2 absolute right-4">
+      <BulletinBottomLeft class="" />
+    </div>
+  </section>
+</template>
+
+<script>
+import BulletinBottomLeft from "@/components/BulletinBox/BulletinBottomLeft.vue";
+export default {
+  name: "SectionThree",
+  components: {
+    BulletinBottomLeft,
+  },
+};
+</script>
+
+<style>
+.sectionThree {
+  background-color: #f9f9f8;
+}
+</style>

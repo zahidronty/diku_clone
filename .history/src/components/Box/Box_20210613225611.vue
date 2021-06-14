@@ -1,0 +1,65 @@
+<template>
+  <div
+    @mouseover="isActive = true"
+    @mouseleave="isActive = false"
+    :class="style.main"
+  >
+    <div :class="[style.shadow,{'bottom-0':props.topBottom,'top-3':!props.topBottom, 'left-8':props.rightLeft, 'right-5':!props.rightLeft}]"/>
+    <button :class="[{'mt-3':props.topBottom ,'mr-0':props.rightLeft, 'ml-0':!props.rightLeft},style.mainBox]">
+        <div v-if="props.contentFor=='home'">       
+          <p :class="style.primaryText"> {{props.primary}} </p>
+          <p :class="style.secondaryText"> {{props.secondary}} </p>
+          <p :class="style.tertiaryText">{{props.tertiary}}
+            <i :class="[style.icon,{ move: isActive }]"/>
+          </p>
+        </div>
+        <div v-if="props.contentFor=='events'">        
+          <p :class="style.primaryEventsText"> {{props.primary}} </p>
+          <p :class="style.secondaryText"> Registration deadline{{props.secondary}} </p>
+        
+        </div>
+    </button>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "Box",
+    
+    props: ['props','primary', 'secondary', 'tertiary', 'rightLeft', 'topBottom','contentFor'],
+    data() {
+      return {
+        contentFor:'',
+        isActive: false,
+        top:false,
+        bottom:false,
+        style:{
+          main:"relative w-full h-full bg-",
+          shadow:"shadow absolute bg-blue-900",
+          mainBox:"mainBox relative z-20 text-left text-3xl bg-white ring-2 ring-blue-900 px-8",
+          primaryText:"text-blue-900 font-bold mb-1",
+          secondaryText:"secondaryColor",
+          tertiaryText:"text-xl font-normal mt-4 inline",
+          icon:"fas fa-arrow-right text-md",
+          primaryEventsText:"text-blue-900 text-4xl font-semibold mb-1 pt-6"
+        }
+      };
+    },
+  };
+</script>
+
+<style scoped>
+  .mainBox {
+    width: 100%;
+    height: 100%;
+  }
+  .shadow {
+    width: 98%;
+    height: 100%;
+  }
+  .move {
+    transform: translateX(30px);
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+  }
+</style>

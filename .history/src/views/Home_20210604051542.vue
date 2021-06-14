@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <section v-if="show==0">
+      <Header @modal="modal"/>
+      <SectionTwo/>
+      <SectionThree/>
+      <Footer/>
+    </section>
+    <ModalSearch @modal="modal" v-if="show==1"/>
+    <ModalMenu @modal="modal" v-if="show==2"/>
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import Header from "@/components/Header.vue";
+import SectionThree from "@/components/SectionOne.vue";
+import SectionTwo from "@/components/SectionTwo.vue";
+import Footer from "@/components/Footer.vue";
+import ModalSearch from "@/components/ModalSearch.vue";
+import ModalMenu from "@/components/ModalMenu.vue";
+
+export default {
+  name: "Home",
+  components: {
+    Header,
+    SectionTwo,
+    SectionThree,
+    Footer,
+    ModalSearch,
+    ModalMenu,
+  },
+  
+  data(){
+    return{
+      show:0,
+    }
+  },
+  methods:{
+    modal(x){
+      this.show = x;
+    },
+  }
+};
+
+</script>

@@ -1,0 +1,54 @@
+<template>
+  <div
+    @mouseover="isActive = true"
+    @mouseleave="isActive = false"
+    class="relative w-full h-full"
+  >
+    <div class="shadows absolute right-0 bottom-0 bg-blue-900"></div>
+    <button
+      class="buttons absolute text-left font-semibold text-3xl bg-white ring-4 ring-blue-900 mr-3 pl-12"
+    >
+      <p class="text-blue-900 font-bold mb-1">{{BoxTopLeft.primary}}</p>
+      <p class="secondaryColor font-bold">and grants</p>
+      <p class="text-xl font-semibold mt-4 inline">
+        Apply for funding
+        <i class="fas fa-arrow-right text-md" :class="{ move: isActive }"></i>
+      </p>
+    </button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "BoxTopLeft",
+  props:{
+    BoxTopLeft: {
+      type=string,
+    },
+  },
+
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+};
+</script>
+
+<style>
+.buttons {
+  width: 98%;
+  height: 96%;
+}
+.shadows {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+}
+
+.move {
+  transform: translateX(30px);
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+</style>

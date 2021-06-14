@@ -1,0 +1,45 @@
+<template>
+  <div :class="style.main">
+    <img src="@/assets/logo.svg" />
+    <div class="flex">
+      <button @click="modal(1)" class="mr-8 focus:outline-none  text-blue-900 hover:text-secondary">
+        <i class="fas fa-search text-5xl"></i>
+        <h1 class="text-xl font-bold" >Search</h1>
+      </button>
+      <button @click="modal(2)" class="text-blue-900 focus:outline-none hover:text-secondary">
+        <i class="fa fa-bars text-5xl" aria-hidden="true"></i>
+        <h1 class="text-xl font-bold">Menu</h1>
+      </button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Header",
+  data() {
+   return {
+    canvasImage: "section1.png",
+    data(){
+      return{
+        style:{
+          main:"flex justify-between",
+        }
+      }
+    }
+   };
+  },
+  methods:{
+    modal(x){
+      this.$emit('modal',x)
+    },
+  },
+};
+</script>
+
+<style>
+.sectionOne {
+  background-color: #e8eae9;
+}
+
+</style>

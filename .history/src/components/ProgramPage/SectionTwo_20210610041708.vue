@@ -1,0 +1,27 @@
+<template>
+ <div class="relative pt-12 bg-white ">
+    <div class="h-full flex flex-col justify-between">
+        <p class="hover:text-blue-900 my-12 px-12 text-2xl text-secondary font-bold"><i class=" mr-4 fas fa-chevron-left"></i>Programmes</p>
+        <p class="px-24 mt-8 font-semibold text-5xl text-blue-900 mb-3"> {{title}} </p>
+        <p class="px-24 mb-24 text-2xl leading-relaxed font-normal tracking-wider w-2/3"> {{info}} </p>
+         </div>
+  </div>  
+</template>
+
+<script>
+
+  
+  export default {
+    name: "SectionTwo",
+    components:{},
+    props:['title', 'info', 'deadline'],
+    data(){ return{
+        isOver: false,
+        deadline: this.deadline
+    }},
+  };
+</script>
+
+<style scoped>
+  
+</style>

@@ -1,0 +1,55 @@
+<template>
+  <div
+    @mouseover="isActive = true"
+    @mouseleave="isActive = false"
+    class="relative w-full h-full"
+  >
+    <div :class="[style.shadow,{'top-0':topBottom,'bottom-0':!topBottom, 'right-0':rightLeft, 'left-0':!rightLeft}]"/>
+    <button :class="[{'top-0':!topBottom, 'bottom-0':topBottom, 'right-0':!rightLeft, 'left-0':rightLeft},style.mainBox]">
+      <p :class="style.primaryText"> {{primary}} </p>
+      <p :class="style.secondaryText"> {{secondary}} </p>
+      <p :class="style.tertiaryText">{{tertiary}}
+        <i :class="[style.icon,{ move: isActive }]"/>
+      </p>
+    </button>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "Box",
+    props: ['primary', 'secondary', 'tertiary', 'rightLeft', 'topBottom'],
+    data() {
+      return {
+        isActive: false,
+        top:false,
+        bottom:false,
+        style:{
+          shadow:"w-5/6 h-5/6 absolute bg-blue-900",
+          mainBox:"w-full h-full absolute text-left text-3xl bg-white ring-4 ring-blue-900 px-8",
+          primaryText:"text-blue-900 font-bold mb-1",
+          secondaryText:"secondaryColor font-bold",
+          tertiaryText:"text-xl font-normal mt-4 inline",
+          icon:"fas fa-arrow-right text-md",
+        }
+      };
+    },
+  };
+</script>
+
+<style>
+
+.buttons {
+  width: 98%;
+  height: 98%;
+}
+.shadows {
+  width: 90%;
+  height: 90%;
+}
+  .move {
+    transform: translateX(30px);
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+  }
+</style>
